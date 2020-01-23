@@ -6,6 +6,8 @@ import java.util.ArrayList;
  * @author Mark Baldwin
  * @author Cyndi Rader
  * 
+ * @authors Ethan Simmons, Gavin Castaneda
+ * Edited 1/23/2020
  * Purpose: Simulates a stove
  */
 public class Stove {
@@ -30,7 +32,9 @@ public class Stove {
 	 **** You must write the following method ****
 	 */
 	public void displayStove() {
-
+		for (Burner burner : burners) {
+			burner.display();
+		}
 	}
 	
 	/**
@@ -92,7 +96,7 @@ public class Stove {
 		Stove stove = new Stove();
 		
 		System.out.println("Beginning stove state ");
-		// trun the burners up
+		// turn the burners up
 		stove.displayStove();
 		stove.turnBurnersUp();
 		stove.timePassing(6);

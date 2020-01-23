@@ -1,6 +1,6 @@
-
+// @authors Ethan Simmons, Gavin Castaneda
 public class Burner {
-	public enum Temperature {BLAZING, HOT, WARM, COLD};
+	public enum Temperature {COLD, WARM, HOT, BLAZING};
 	private Temperature myTemperature;
 	private Setting mySetting;
 	private int timer;
@@ -13,6 +13,7 @@ public class Burner {
 		super();
 		this.myTemperature = Temperature.COLD;
 		this.mySetting = Setting.OFF;
+		this.timer = 0;
 	}
 
 	public void plusButton() {
@@ -46,6 +47,22 @@ public class Burner {
 	}
 	
 	public void updateTemperature() {
+		if (timer > 0) {
+			timer--;
+			if (timer == 0) {
+				if (myTemperature.ordinal() < mySetting.ordinal() ) {
+					myTemperature = Temperature.values()[myTemperature.ordinal() + 1];
+				} else if (myTemperature.ordinal() > mySetting.ordinal() ) {
+					myTemperature = Temperature.values()[myTemperature.ordinal() - 1];
+				}
+				if (myTemperature.ordinal() != mySetting.ordinal()) {
+					timer = TIME_DURATION;
+				}
+			}
+		}
+	}
+	
+	public void display() {
 		
 	}
 }
