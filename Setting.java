@@ -1,4 +1,4 @@
-
+// @authors Ethan Simmons, Gavin Castaneda
 public enum Setting {
 	OFF("---"), LOW("--+"), MEDIUM("-++"), HIGH("+++");
 	private String value;
